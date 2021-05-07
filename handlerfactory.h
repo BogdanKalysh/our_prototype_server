@@ -5,10 +5,10 @@
 #include <map>
 #include <memory>
 #include "IDbManager.h"
+#include "ihandler.h"
 
 namespace handlers
 {
-
 class HandlerFactory : public Poco::Net::HTTPRequestHandlerFactory
 {
 private:
@@ -16,10 +16,11 @@ private:
 
     std::map <std::string, IHandler*> handlers;
 
-    HandlerFactory();
     Poco::Net::HTTPRequestHandler* createRequestHandler(const Poco::Net::HTTPServerRequest& request) override;
 
 public:
+    HandlerFactory();
+
     void addHandler(std::string uri, IHandler* handler);
 };
 

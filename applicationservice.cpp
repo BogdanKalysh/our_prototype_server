@@ -1,4 +1,5 @@
 #include "applicationservice.h"
+#include "handlerfactory.h"
 
 namespace
 {
@@ -35,7 +36,7 @@ int ApplicationService::main(const std::vector<std::string>& args){
 
     const Poco::Net::ServerSocket socket(Socket("localhost:5849"));
 
-    Poco::Net::HTTPServer server(new handlers::Factory(), socket, parameters);
+    Poco::Net::HTTPServer server(new handlers::HandlerFactory(), socket, parameters);
 
     server.start();
     waitForTerminationRequest();

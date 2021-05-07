@@ -7,7 +7,7 @@ namespace handlers
 {
 
 HandlerFactory::HandlerFactory(){
-    addHandler("/user", new UserHandler);
+    addHandler("/user", new UserHandler(manager));
 //    addHandler("/category", new CategoryHandler);
 //    addHandler("/transaction", new TransactionHandler);
 

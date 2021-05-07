@@ -3,9 +3,9 @@
 
 class IDBManager{
 public:
-    int getUserRepository();
-    int getCategoryRepository();
-    int getTransactionRepository();
+    virtual int getUserRepository() = 0;
+    virtual int getCategoryRepository() = 0;
+    virtual int getTransactionRepository() = 0;
 };
 
 #endif // IDBMANAGER_H
